@@ -31,6 +31,10 @@ import { BatteryService } from '../../tesla-battery.service';
             [max]="40"
             formControlName="temperature">
           </tesla-counter>
+          <tesla-climate
+            [limit]="tesla.get('config.temperature').value > 10"
+            formControlName="climate">
+          </tesla-climate>
         </div>
       </div>
       <div class="tesla-battery__notice">
