@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   template: `
     <form class="tesla-battery" [formGroup]="tesla">
       <h1>{{ title }}</h1>
+      <tesla-car [wheelsize]="tesla.get('config.wheels').value"></tesla-car>
       <div class="tesla-battery__notice">
         <p>
           The actual amount of range that you experience will vary based
@@ -29,9 +30,8 @@ export class TeslaBatteryComponent implements OnInit {
 
   title: string = 'Range Per Charge';
   tesla: FormGroup;
-
+  
   constructor(public fb: FormBuilder) {}
-
   ngOnInit() {
     this.tesla = this.fb.group({
       config: this.fb.group({
@@ -40,7 +40,7 @@ export class TeslaBatteryComponent implements OnInit {
         climate: true,
         wheels: 19
       })
-    });
-  }
+  });
+}
 
 }
